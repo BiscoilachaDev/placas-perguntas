@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Base Secreta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="setup" id="setup">
+
+        <div class="section">
+
+            <h2>Configurações</h2>
+
+            <label>
+                Número da Pergunta
+            </label>
+
+            <div class="number-control">
+
+                <button
+                    type="button"
+                    class="minus">
+
+                    -
+
+                </button>
+
+                <input
+                    id="questionNumber"
+                    type="text"
+                    value="1"
+                    readonly>
+
+                <button
+                    type="button"
+                    class="plus">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <label>
+                Pergunta
+            </label>
+
+            <input
+                id="questionInput"
+                type="text"
+                placeholder="Digite sua pergunta">
+
+            <label>
+                Tempo (minutos)
+            </label>
+
+            <div class="number-control">
+
+                <button
+                    type="button"
+                    class="minus">
+
+                    -
+
+                </button>
+
+                <input
+                    id="minutesInput"
+                    type="text"
+                    value="3"
+                    readonly>
+
+                <button
+                    type="button"
+                    class="plus">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <label>
+                Quantidade de Placas
+            </label>
+
+            <div class="number-control">
+
+                <button
+                    type="button"
+                    class="minus">
+
+                    -
+
+                </button>
+
+                <input
+                    id="cardCount"
+                    type="text"
+                    value="5"
+                    readonly>
+
+                <button
+                    type="button"
+                    class="plus">
+
+                    +
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Placas</h2>
+
+            <div id="answersContainer">
+
+            </div>
+
+        </div>
+
+        <button
+            id="createQuizBtn"
+            onclick="startGame()">
+
+            CRIAR QUIZ
+
+        </button>
+
+    </div>
+
+    <div
+        class="game"
+        id="game">
+
+        <div class="top-area">
+
+            <div class="question-container">
+
+                <div
+                    class="question-tag"
+                    id="questionTag">
+
+                    #01
+
+                </div>
+
+                <div
+                    class="question"
+                    id="question">
+
+                </div>
+
+            </div>
+
+            <div class="timer-box">
+
+                <div
+                    class="timer"
+                    id="timer">
+
+                    3:00
+
+                </div>
+
+                <button
+                    id="startTimerBtn">
+
+                    ▶
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            class="cards"
+            id="cards">
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

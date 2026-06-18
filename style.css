@@ -1,0 +1,362 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Press Start 2P', cursive;
+    background:#ffd800;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* ========================= */
+/* CRIAÇÃO */
+/* ========================= */
+
+.setup{
+    max-width:900px;
+    margin:auto;
+
+    background:white;
+
+    border:4px solid black;
+
+    box-shadow:8px 8px 0 black;
+
+    padding:25px;
+}
+
+.section{
+    margin-bottom:30px;
+}
+
+.section h2{
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+label{
+    display:block;
+
+    margin-top:15px;
+    margin-bottom:8px;
+
+    font-size:12px;
+}
+
+input{
+    width:100%;
+
+    padding:12px;
+
+    border:3px solid black;
+
+    font-family:inherit;
+
+    outline:none;
+
+    text-align:center;
+}
+
+input:focus{
+    transform:translateY(-2px);
+}
+
+#answersContainer{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+button{
+    font-family:inherit;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+#createQuizBtn{
+    width:100%;
+
+    padding:15px;
+
+    background:black;
+
+    color:white;
+}
+
+/* ========================= */
+/* JOGO */
+/* ========================= */
+
+.game{
+    display:none;
+}
+
+/* ========================= */
+/* TOPO */
+/* ========================= */
+
+.top-area{
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+.question-container{
+    position:relative;
+}
+
+.question-tag{
+    position:absolute;
+
+    top:-12px;
+    left:-12px;
+
+    background:#ffe85a;
+
+    border:3px solid black;
+
+    padding:6px 8px;
+
+    font-size:10px;
+
+    box-shadow:4px 4px 0 black;
+
+    z-index:10;
+}
+
+.question{
+    width:min(800px,90vw);
+
+    min-height:90px;
+
+    background:#ffe85a;
+
+    border:4px solid black;
+
+    box-shadow:8px 8px 0 black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    line-height:1.6;
+
+    padding:20px;
+}
+
+/* ========================= */
+/* TIMER */
+/* ========================= */
+
+.timer-box{
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.timer{
+    font-size:40px;
+}
+
+#startTimerBtn{
+    background:black;
+    color:white;
+
+    padding:12px 18px;
+}
+
+/* ========================= */
+/* PLACAS */
+/* ========================= */
+
+.cards{
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,250px);
+
+    justify-content:center;
+
+    gap:20px;
+}
+
+.card{
+    width:250px;
+    height:90px;
+
+    perspective:1000px;
+
+    cursor:pointer;
+}
+
+.card-inner{
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:transform .8s;
+}
+
+.card.flipped .card-inner{
+    transform:rotateX(180deg);
+}
+
+.front,
+.back{
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:10px;
+
+    border:4px solid black;
+
+    box-shadow:6px 6px 0 black;
+
+    backface-visibility:hidden;
+}
+
+.front{
+    background:#222;
+
+    color:#ffe600;
+}
+
+.back{
+    background:#f0f0f0;
+
+    color:black;
+
+    transform:rotateX(180deg);
+}
+
+/* última placa centralizada */
+
+.last-card{
+    grid-column:1 / span 2;
+
+    justify-self:center;
+}
+
+/* ========================= */
+/* CONTROLES NUMÉRICOS */
+/* ========================= */
+
+.number-control{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.number-control input{
+    flex:1;
+
+    text-align:center;
+
+    cursor:default;
+
+    user-select:none;
+
+    pointer-events:none;
+}
+
+.number-control button{
+    width:50px;
+    height:50px;
+
+    background:black;
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:'Press Start 2P', cursive;
+
+    font-size:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.2s;
+}
+
+.number-control button:hover{
+    transform:translateY(-2px);
+}
+
+.number-control button:active{
+    transform:translateY(2px);
+}
+
+/* remove setinhas do navegador */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+input[type="number"]{
+    appearance:textfield;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:700px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .last-card{
+        grid-column:auto;
+    }
+
+    .timer{
+        font-size:28px;
+    }
+
+    .question{
+        font-size:10px;
+    }
+
+}
